@@ -1,0 +1,8 @@
+const stripe = Stripe('pk_test_YOUR_PUBLISHABLE_KEY_HERE');
+// Checkout session (add to checkPremium()):
+stripe.redirectToCheckout({
+  lineItems: [{price: 'price_1ABC123YOUR20MO_PRICE_ID', quantity: 1}],
+  mode: 'subscription',
+  successUrl: window.location.href + '?success=true',
+  cancelUrl: window.location.href + '?cancel=true'
+});
